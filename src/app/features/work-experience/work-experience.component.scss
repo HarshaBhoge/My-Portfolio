@@ -1,0 +1,144 @@
+@import "../../../styles.scss";
+
+.experience-section {
+  padding: $space-5xl 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: $space-3xl 0;
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $space-3xl;
+}
+
+// ── Timeline ────────────────────────────────
+.timeline-list {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0;
+  max-width: 640px;
+  width: 100%;
+}
+
+.experience-card {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: $space-lg;
+  padding-bottom: $space-2xl;
+
+  &:last-child {
+    padding-bottom: 0;
+
+    .timeline-line {
+      display: none;
+    }
+  }
+}
+
+.timeline-marker {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  flex-shrink: 0;
+  width: 20px;
+}
+
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: $clr-accent;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.timeline-line {
+  width: 1px;
+  flex: 1;
+  background: $clr-border;
+  margin-top: $space-sm;
+}
+
+// ── Card Content ────────────────────────────
+.card-content {
+  flex: 1;
+  padding-bottom: $space-sm;
+}
+
+.card-period {
+  display: inline-block;
+  font-family: $ff-mono;
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  color: $clr-accent;
+  background: $clr-accent-muted;
+  padding: 2px $space-sm;
+  border-radius: $radius-sm;
+  margin-bottom: $space-sm;
+}
+
+.card-role {
+  font-size: $fs-xl;
+  font-weight: $fw-semibold;
+  color: $clr-text-primary;
+  margin-bottom: $space-xs;
+}
+
+.card-company {
+  font-size: $fs-base;
+  color: $clr-text-secondary;
+  margin-bottom: $space-md;
+}
+
+.card-summary {
+  font-size: $fs-base;
+  color: $clr-text-secondary;
+  line-height: $lh-relaxed;
+  margin-bottom: $space-md;
+}
+
+.card-bullets {
+  margin-bottom: $space-md;
+
+  li {
+    font-size: $fs-sm;
+    color: $clr-text-secondary;
+    line-height: $lh-relaxed;
+    margin-bottom: $space-sm;
+    padding-left: $space-lg;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $clr-border-hover;
+    }
+  }
+}
+
+.tech-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: $space-sm;
+
+  li {
+    font-family: $ff-mono;
+    font-size: $fs-xs;
+    font-weight: $fw-medium;
+    padding: $space-xs $space-sm;
+    border-radius: $radius-sm;
+    background: $clr-accent-muted;
+    color: $clr-accent;
+  }
+}
+

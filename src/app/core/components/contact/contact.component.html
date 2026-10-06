@@ -1,0 +1,81 @@
+<section id="contact" class="contact-section">
+  <div class="section-header" appInView>
+    <h2 class="section-title">Let's Talk</h2>
+    <p class="section-subtitle">
+      I'm currently open to new opportunities. Whether you have a role in mind
+      or just want to connect, I'd love to hear from you.
+    </p>
+  </div>
+
+  <div class="contact-card" appInView>
+    <div class="contact-form-wrap">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="name"
+            placeholder="Your name"
+            autocomplete="name"
+          />
+          @if (name.invalid && (name.dirty || name.touched)) {
+          <span class="form-error">Name is required.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+          />
+          @if (email.invalid && (email.dirty || email.touched)) {
+          <span class="form-error">
+            {{ email.errors?.['required'] ? 'Email is required.' : 'Enter a valid email.' }}
+          </span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            formControlName="message"
+            placeholder="Tell me about your project, opportunity, or just say hello..."
+            rows="4"
+          ></textarea>
+          @if (message.invalid && (message.dirty || message.touched)) {
+          <span class="form-error">Message is required.</span>
+          }
+        </div>
+
+        <button type="submit" class="btn-submit" [disabled]="contactForm.invalid || isSending">
+          {{ isSending ? 'Sending...' : 'Send Message' }}
+        </button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <h3 class="info-title">Contact Information</h3>
+      <div class="info-items">
+        <a href="https://www.google.com/maps/place/Pune" target="_blank" class="info-item">
+          <img ngSrc="/assets/contact-icons/location.png" height="18" width="18" alt="" aria-hidden="true" />
+          <span>Pune, India</span>
+        </a>
+        <a href="tel:+917057065515" class="info-item">
+          <img ngSrc="/assets/contact-icons/phone.png" height="18" width="18" alt="" aria-hidden="true" />
+          <span>+91 7057065515</span>
+        </a>
+        <a href="mailto:manepravin11122@gmail.com" class="info-item">
+          <img ngSrc="/assets/contact-icons/email.png" height="18" width="18" alt="" aria-hidden="true" />
+          <span>manepravin11122&#64;gmail.com</span>
+        </a>
+      </div>
+      <app-social-links [onlyIcons]="true"></app-social-links>
+    </div>
+  </div>
+</section>

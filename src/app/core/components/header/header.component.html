@@ -1,0 +1,32 @@
+<header class="header-wrap" [class.hidden]="!isHeaderVisible()">
+  <div class="header-bar">
+    <div class="header-left">
+      <a href="#" class="logo-link" aria-label="Pravin Mane — Home">
+        <span class="logo-text">Pravin Mane</span>
+      </a>
+    </div>
+    <app-navigation class="desktop-nav" [activeSection]="activeSection()"></app-navigation>
+    <div class="header-right">
+      <app-mode-toggle></app-mode-toggle>
+      <button
+        class="mobile-menu-btn"
+        (click)="isMobileNavOpen.set(!isMobileNavOpen())"
+        [attr.aria-expanded]="isMobileNavOpen()"
+        aria-label="Toggle menu"
+      >
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+@if (isMobileNavOpen()) {
+<div class="mobile-overlay" (click)="closeMobileNav()">
+  <app-navigation
+    class="mobile-nav"
+    [withCloseBtn]="true"
+    [activeSection]="activeSection()"
+    (closeClicked)="closeMobileNav()"
+  ></app-navigation>
+</div>
+}

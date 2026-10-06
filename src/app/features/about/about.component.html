@@ -1,0 +1,53 @@
+<section id="about" class="about-section">
+  <div class="about-image-wrapper" appInView>
+    <img
+      ngSrc="/assets/about.webp"
+      width="300"
+      height="400"
+      class="about-image"
+      alt="Pravin Mane"
+      priority
+    />
+  </div>
+  <div class="about-content" appInView>
+    <h2 class="section-title">About</h2>
+    <p class="about-lead stagger-1" appInView>
+      I'm a software engineer who believes great front-end work is invisible —
+      when it's done right, nobody notices. They just get things done faster.
+    </p>
+    <p class="stagger-2" appInView>
+      I've been building web applications professionally since 2020, starting at
+      <strong>SLB</strong> where I cut my teeth on enterprise Angular and .NET Core.
+      There, I led the component restructuring of a flagship application, improving
+      load performance through dynamic data fetching and NgRx state management.
+    </p>
+    <p class="stagger-3" appInView>
+      Since 2024, I've been at <strong>JP Morgan Chase & Co.</strong>, building
+      and maintaining Angular applications at banking scale — where correctness,
+      accessibility, and performance aren't optional. I work across the full
+      TypeScript / Angular / .NET stack, with AWS infrastructure.
+    </p>
+    <p class="stagger-4" appInView>
+      Before all this, I was the kid in 2014 teaching myself HTML and CSS on a
+      borrowed laptop, just to see something I built appear on a screen. That same
+      curiosity still drives me today.
+    </p>
+
+    <!-- Skills Grid -->
+    <div class="skills-inline">
+      <h3 class="skills-heading">Technologies I work with</h3>
+      <div class="skills-grid">
+        @for (category of skillCategories; track category.name) {
+        <div class="skill-category">
+          <h4 class="category-name">{{ category.name }}</h4>
+          <ul role="list" class="skill-list">
+            @for (skill of category.items; track skill) {
+            <li class="skill-tag">{{ skill }}</li>
+            }
+          </ul>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

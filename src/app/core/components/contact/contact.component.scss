@@ -1,0 +1,169 @@
+@import "../../../../styles.scss";
+
+.contact-section {
+  padding: $space-5xl 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    padding: $space-3xl 0;
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $space-3xl;
+  max-width: 480px;
+}
+
+// ── Card ────────────────────────────────────
+.contact-card {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  max-width: 800px;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  border: 1px solid $clr-border;
+  background: $clr-surface;
+  box-shadow: $shadow-md;
+
+  @media (max-width: 700px) {
+    flex-flow: column nowrap;
+  }
+}
+
+// ── Form ────────────────────────────────────
+.contact-form-wrap {
+  flex: 1;
+  padding: $space-xl;
+  background: $clr-surface;
+
+  @media (max-width: 700px) {
+    padding: $space-lg;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: $space-md;
+}
+
+.form-group {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: $space-xs;
+
+  label {
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: $clr-text-secondary;
+  }
+
+  input, textarea {
+    padding: $space-sm $space-md;
+    border: 1px solid $clr-border;
+    border-radius: $radius-lg;
+    background: $clr-bg;
+    color: $clr-text-primary;
+    font-family: $ff-primary;
+    font-size: $fs-sm;
+    transition: border-color $duration-fast $ease-out,
+                box-shadow $duration-fast $ease-out;
+
+    &::placeholder {
+      color: $clr-text-tertiary;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $clr-accent;
+      box-shadow: 0 0 0 3px $clr-accent-muted;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+}
+
+.form-error {
+  font-size: $fs-xs;
+  color: $clr-error;
+}
+
+.btn-submit {
+  padding: $space-sm $space-xl;
+  background: $clr-accent;
+  color: #ffffff;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  border: none;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background $duration-fast $ease-out,
+              transform $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    background: $clr-accent-hover;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ── Info Panel ──────────────────────────────
+.contact-info {
+  width: 280px;
+  flex-shrink: 0;
+  padding: $space-xl;
+  background: linear-gradient(160deg, $clr-gradient-start, $clr-gradient-end);
+  color: #ffffff;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+
+  @media (max-width: 700px) {
+    width: 100%;
+    padding: $space-lg;
+  }
+}
+
+.info-title {
+  font-size: $fs-lg;
+  font-weight: $fw-semibold;
+  margin-bottom: $space-lg;
+}
+
+.info-items {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: $space-md;
+  margin-bottom: $space-xl;
+}
+
+.info-item {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: $space-sm;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: $fs-sm;
+  transition: color $duration-fast $ease-out;
+
+  &:hover {
+    color: #ffffff;
+  }
+
+  img {
+    opacity: 0.8;
+  }
+}

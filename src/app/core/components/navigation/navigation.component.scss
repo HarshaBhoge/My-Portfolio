@@ -1,0 +1,60 @@
+@import "../../../../styles.scss";
+
+.nav-list {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0;
+}
+
+.nav-link {
+  position: relative;
+  padding: $space-xs $space-sm;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: $clr-text-secondary;
+  text-decoration: none;
+  border-radius: $radius-md;
+  transition: color $duration-fast $ease-out,
+              background $duration-fast $ease-out;
+
+  &:hover {
+    color: $clr-text-primary;
+    background: $clr-surface-hover;
+  }
+
+  &.active {
+    color: $clr-text-primary;
+  }
+}
+
+.nav-accent {
+  color: $clr-accent;
+  &:hover { color: $clr-accent-hover; background: $clr-accent-muted; }
+}
+
+.close-btn {
+  position: absolute;
+  top: $space-md;
+  right: $space-md;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $clr-text-primary;
+  padding: $space-xs;
+  border-radius: $radius-full;
+  transition: background $duration-fast $ease-out;
+  &:hover { background: $clr-surface-hover; }
+}
+
+@media (max-width: 768px) {
+  .nav-list {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    gap: 0;
+    padding: $space-3xl $space-lg $space-lg;
+    height: 100%;
+    background: $clr-surface;
+  }
+  .nav-link { font-size: $fs-base; padding: $space-sm $space-md; width: 100%; }
+}

@@ -1,0 +1,139 @@
+@import "../../../styles.scss";
+
+.about-section {
+  padding: $space-5xl 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  gap: $space-4xl;
+
+  @media (max-width: 768px) {
+    flex-flow: column nowrap;
+    gap: $space-2xl;
+    padding: $space-3xl 0;
+  }
+}
+
+.about-image-wrapper {
+  flex-shrink: 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: $radius-2xl;
+    background: linear-gradient(135deg, $clr-gradient-start, $clr-gradient-end);
+    opacity: 0.12;
+    filter: blur(8px);
+    z-index: -1;
+  }
+}
+
+.about-image {
+  border-radius: $radius-2xl;
+  object-fit: cover;
+  min-width: 240px;
+  box-shadow: $shadow-lg;
+
+  @media (max-width: 768px) {
+    max-width: 240px;
+    min-width: 180px;
+  }
+}
+
+.about-content {
+  max-width: 560px;
+}
+
+.about-lead {
+  font-size: $fs-lg;
+  color: $clr-text-secondary;
+  line-height: $lh-relaxed;
+  margin-bottom: $space-lg;
+  font-weight: $fw-medium;
+}
+
+p {
+  font-size: $fs-base;
+  line-height: $lh-relaxed;
+  color: $clr-text-secondary;
+  margin-bottom: $space-md;
+
+  strong {
+    color: $clr-text-primary;
+    font-weight: $fw-semibold;
+  }
+}
+
+// ── Skills Grid ─────────────────────────────
+.skills-inline {
+  margin-top: $space-2xl;
+  padding-top: $space-2xl;
+  border-top: 1px solid $clr-border;
+}
+
+.skills-heading {
+  font-size: $fs-sm;
+  font-weight: $fw-semibold;
+  color: $clr-text-tertiary;
+  text-transform: uppercase;
+  letter-spacing: $ls-wide;
+  margin-bottom: $space-lg;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-md;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-category {
+  padding: $space-md;
+  background: $clr-surface;
+  border: 1px solid $clr-border;
+  border-radius: $radius-lg;
+  transition: border-color $duration-normal $ease-out;
+
+  &:hover {
+    border-color: $clr-border-hover;
+  }
+}
+
+.category-name {
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  color: $clr-text-tertiary;
+  text-transform: uppercase;
+  letter-spacing: $ls-wide;
+  margin-bottom: $space-sm;
+}
+
+.skill-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: $space-xs;
+}
+
+.skill-tag {
+  font-family: $ff-mono;
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  padding: 2px $space-sm;
+  border-radius: $radius-sm;
+  background: $clr-accent-muted;
+  color: $clr-accent;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  transition: border-color $duration-fast $ease-out,
+              background $duration-fast $ease-out;
+
+  &:hover {
+    border-color: $clr-accent;
+    background: $clr-accent-muted-hover;
+  }
+}

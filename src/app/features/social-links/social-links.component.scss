@@ -1,0 +1,38 @@
+@import "../../../styles.scss";
+
+.social-media-list {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: $space-sm;
+  margin-top: 0;
+}
+
+.centered-icons { justify-content: center; }
+
+.list-item {
+  opacity: 0.5;
+  transition: opacity $duration-fast $ease-out;
+  &:hover { opacity: 1; }
+}
+
+.list-item > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-full;
+  color: $clr-text-tertiary;
+  text-decoration: none;
+  transition: color $duration-fast $ease-out,
+              background $duration-fast $ease-out;
+  &:hover {
+    color: $clr-accent;
+    background: $clr-accent-muted;
+  }
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+}

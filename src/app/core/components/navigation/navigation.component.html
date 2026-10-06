@@ -1,0 +1,30 @@
+<nav>
+  <ul role="list" class="nav-list">
+    @for (item of navItems(); track item.href) {
+    <li>
+      <a
+        [href]="item.href"
+        class="nav-link"
+        [class.active]="activeSection === item.id"
+        (click)="onNavClick()"
+      >{{ item.title }}</a>
+    </li>
+    }
+    <li>
+      <a
+        href="https://drive.google.com/file/d/1kQ4GhjZ1z5E9swj71FEZ01inyeEWxwKr/view?usp=sharing"
+        target="_blank"
+        class="nav-link nav-accent"
+      >Résumé</a>
+    </li>
+  </ul>
+</nav>
+
+@if (withCloseBtn) {
+<button class="close-btn" (click)="closeClicked.emit()" aria-label="Close navigation">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+</button>
+}
