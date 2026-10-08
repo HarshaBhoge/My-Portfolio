@@ -1,9 +1,12 @@
-@import "../../../../styles.scss";
+@use '../../../../styles/variables' as *;
 
 .header-wrap {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: $z-nav;
+  width: 100%;
   background: $clr-header-bg;
   border-bottom: 1px solid $clr-header-border;
   backdrop-filter: blur(20px);
@@ -20,7 +23,7 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 $space-xl;
   height: 56px;
@@ -30,10 +33,20 @@
   }
 }
 
-.header-left { display: flex; align-items: center; }
-.header-right { display: flex; align-items: center; gap: $space-sm; }
+.header-left {
+  display: flex;
+  align-items: center;
+}
 
-.logo-link { text-decoration: none; }
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+}
+
+.logo-link {
+  text-decoration: none;
+}
 
 .logo-text {
   font-size: $fs-lg;
@@ -41,11 +54,19 @@
   color: $clr-text-primary;
   letter-spacing: $ls-tight;
   transition: color $duration-fast $ease-out;
-  &:hover { color: $clr-accent; }
+
+  &:hover {
+    color: $clr-accent;
+  }
 }
 
 .desktop-nav {
-  @media (max-width: 768px) { display: none; }
+  margin-left: auto;
+  margin-right: $space-lg;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .mobile-menu-btn {
@@ -63,10 +84,15 @@
     height: 1.5px;
     background: $clr-text-primary;
     border-radius: 1px;
-    &:last-child { width: 12px; }
+
+    &:last-child {
+      width: 12px;
+    }
   }
 
-  @media (max-width: 768px) { display: flex; }
+  @media (max-width: 768px) {
+    display: flex;
+  }
 }
 
 .mobile-overlay {
@@ -79,7 +105,9 @@
 
 .mobile-nav {
   position: fixed;
-  top: 0; right: 0; bottom: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   z-index: $z-overlay + 1;
   width: min(300px, 85vw);
 }

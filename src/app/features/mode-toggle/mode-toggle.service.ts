@@ -57,26 +57,36 @@ export class ModeToggleService {
    * 4 - Else set the default value to `light`
    */
   private init() {
-    const deviceMode = window.matchMedia('(prefers-color-scheme: dark)');
-    let initMode = this.modeStorage.get();
-    if (!initMode) {
-      initMode = deviceMode.matches ? Mode.DARK : Mode.LIGHT;
-    }
-    this.updateCurrentMode(initMode);
-    this.document.body.classList.add(this.currentMode);
+  const deviceMode = window.matchMedia('(prefers-color-scheme: dark)');
+
+  let initMode = this.modeStorage.get();
+
+  if (!initMode) {
+    initMode = deviceMode.matches ? Mode.DARK : Mode.LIGHT;
   }
 
+  // Remove both classes first
+  this.document.body.classList.remove(Mode.LIGHT, Mode.DARK);
+
+  // Save current mode
+  this.updateCurrentMode(initMode);
+
+  // Apply the selected theme
+  this.document.body.classList.add(initMode);
+}
   /**
    * Function that toggles the mode
    * Exposed publicly
    */
   toggleMode() {
-    this.document.body.classList.toggle(Mode.LIGHT);
-    this.document.body.classList.toggle(Mode.DARK);
-    if (this.currentMode === Mode.LIGHT) {
-      this.updateCurrentMode(Mode.DARK);
-    } else {
-      this.updateCurrentMode(Mode.LIGHT);
-    }
-  }
+  const newMode =
+    this.currentMode === Mode.LIGHT
+      ? Mode.DARK
+      : Mode.LIGHT;
+
+  this.document.body.classList.remove(Mode.LIGHT, Mode.DARK);
+  this.document.body.classList.add(newMode);
+
+  this.updateCurrentMode(newMode);
+}
 }

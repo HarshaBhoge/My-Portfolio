@@ -6,80 +6,189 @@
 $ff-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 $ff-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 
-$fw-regular: 400; $fw-medium: 500; $fw-semibold: 600; $fw-bold: 700;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
 
 $fs-hero: clamp(2.5rem, 5vw, 4rem);
-$fs-xxl:  clamp(1.75rem, 3vw, 2.5rem);
-$fs-xl:   1.25rem; $fs-lg: 1.125rem; $fs-base: 0.9375rem;
-$fs-sm:   0.8125rem; $fs-xs: 0.75rem; $fs-mono: 0.8125rem;
+$fs-xxl: clamp(1.75rem, 3vw, 2.5rem);
+$fs-xl: 1.25rem;
+$fs-lg: 1.125rem;
+$fs-base: 0.9375rem;
+$fs-sm: 0.8125rem;
+$fs-xs: 0.75rem;
+$fs-mono: 0.8125rem;
 
-$lh-tight: 1.2; $lh-normal: 1.6; $lh-relaxed: 1.75;
-$ls-tight: -0.015em; $ls-normal: -0.01em; $ls-mono: 0.02em;
-
-$space-xs: 0.5rem; $space-sm: 0.75rem; $space-md: 1rem; $space-lg: 1.5rem;
-$space-xl: 2rem; $space-2xl: 3rem; $space-3xl: 4rem; $space-4xl: 6rem;
+$lh-tight: 1.2;
+$lh-normal: 1.6;
+$lh-relaxed: 1.75;
+$ls-tight: -0.015em;
+$ls-normal: -0.01em;
+$ls-mono: 0.02em;
+$ls-wide: 0.04em;
+$space-xs: 0.5rem;
+$space-sm: 0.75rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+$space-2xl: 3rem;
+$space-3xl: 4rem;
+$space-4xl: 6rem;
 $space-5xl: 8rem;
 
-$radius-sm: 0.25rem; $radius-md: 0.5rem; $radius-lg: 0.75rem;
-$radius-xl: 1rem; $radius-full: 9999px;
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 0.75rem;
+$radius-xl: 1rem;
+$radius-2xl: 1.5rem;
+$radius-full: 9999px;
 
 $ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
-$duration-fast: 120ms; $duration-normal: 250ms;
-$duration-slow: 400ms; $duration-slower: 600ms;
+$duration-fast: 120ms;
+$duration-normal: 250ms;
+$duration-slow: 400ms;
+$duration-slower: 600ms;
 
-$z-base: 1; $z-above: 2; $z-terminal: 40; $z-tabs: 45; $z-statusbar: 50; $z-boot: 100;
-$statusbar-h: 28px; $tabs-h: 36px; $terminal-h: 44px;
+$z-base: 1;
+$z-above: 2;
+$z-terminal: 40;
+$z-tabs: 45;
+$z-statusbar: 50;
+$z-boot: 100;
+$statusbar-h: 28px;
+$tabs-h: 36px;
+$terminal-h: 44px;
 
-// ── Editor Dark Tokens ──────────────────────
+
+// ── Portfolio Theme Tokens ──────────────────
+
 @mixin darken() {
-  --clr-bg:            #1A1B26;
-  --clr-surface:       #1F2130;
-  --clr-surface-hover: #292C3A;
-  --clr-border:        #2F3344;
-  --clr-border-hover:  #3B3F52;
+  --clr-bg: #151318;
+  --clr-surface: #201D23;
+  --clr-surface-hover: #29252C;
 
-  --clr-text-primary:   #C0CAF5;
-  --clr-text-secondary: #9AA5CE;
-  --clr-text-tertiary:  #565F89;
+  --clr-border: rgba(245, 241, 243, 0.12);
+  --clr-border-hover: rgba(245, 241, 243, 0.22);
 
-  --clr-accent:         #7AA2F7;   // keyword blue
-  --clr-accent-hover:   #9DBDF9;
-  --clr-accent-muted:   rgba(122, 162, 247, 0.1);
+  --clr-text-primary: #F5F1F3;
+  --clr-text-secondary: #C9C1C6;
+  --clr-text-tertiary: #948B91;
 
-  --clr-string:         #9ECE6A;   // string green
-  --clr-function:       #E0AF68;   // function yellow
-  --clr-comment:        #565F89;   // comment dim
-  --clr-variable:       #C0CAF5;   // variable white
-  --clr-constant:       #FF9E64;   // constant orange
-  --clr-error:          #F7768E;   // error red
+  --clr-accent: #C98BAF;
+  --clr-accent-hover: #D9A3C0;
+  --clr-accent-muted: rgba(201, 139, 175, 0.12);
 
-  --clr-terminal-bg:    rgba(26, 27, 38, 0.95);
-  --clr-line-number:    #3B4261;
+  --clr-secondary-accent: #D8A48F;
+
+  --clr-error: #E98282;
+
+  --clr-terminal-bg: rgba(21, 19, 24, 0.95);
+
+  --clr-string: #9ECE6A;
+  --clr-function: #E0AF68;
+  --clr-comment: #565F89;
+  --clr-variable: #C0CAF5;
+  --clr-constant: #FF9E64;
+  --clr-line-number: #3B4261;
 }
 
 @mixin lighten() {
-  --clr-bg:            #FAFAFA;
-  --clr-surface:       #FFFFFF;
-  --clr-surface-hover: #F4F4F5;
-  --clr-border:        #E4E4E7;
-  --clr-border-hover:  #D4D4D8;
+  --clr-bg: #F8F5F0;
+  --clr-surface: #FFFDFC;
+  --clr-surface-hover: #F3EEEA;
 
-  --clr-text-primary:   #1A1B26;
-  --clr-text-secondary: #52525B;
-  --clr-text-tertiary:  #A1A1AA;
+  --clr-border: rgba(37, 35, 41, 0.12);
+  --clr-border-hover: rgba(37, 35, 41, 0.22);
 
-  --clr-accent:         #3D59A1;
-  --clr-accent-hover:   #2E4A8E;
-  --clr-accent-muted:   rgba(61, 89, 161, 0.08);
+  --clr-text-primary: #252329;
+  --clr-text-secondary: #625D63;
+  --clr-text-tertiary: #918B91;
 
-  --clr-string:         #487C34;
-  --clr-function:       #8C6A2E;
-  --clr-comment:        #A1A1AA;
-  --clr-variable:       #1A1B26;
-  --clr-constant:       #B15C2E;
-  --clr-error:          #C43E4E;
+  --clr-accent: #7C3F67;
+  --clr-accent-hover: #693456;
+  --clr-accent-muted: rgba(124, 63, 103, 0.10);
 
-  --clr-terminal-bg:    rgba(250, 250, 250, 0.95);
-  --clr-line-number:    #D4D4D8;
+  --clr-secondary-accent: #D99A9A;
+
+  --clr-error: #B84A4A;
+
+  --clr-terminal-bg: rgba(248, 245, 240, 0.95);
+  --clr-string: #487C34;
+  --clr-function: #8C6A2E;
+  --clr-comment: #A1A1AA;
+  --clr-variable: #1A1B26;
+  --clr-constant: #B15C2E;
+  --clr-line-number: #D4D4D8;
 }
+
+
+// ── CSS Variable Aliases ─────────────────────
+
+$clr-bg: var(--clr-bg);
+$clr-surface: var(--clr-surface);
+$clr-surface-hover: var(--clr-surface-hover);
+$clr-border: var(--clr-border);
+$clr-border-hover: var(--clr-border-hover);
+
+$clr-text-primary: var(--clr-text-primary);
+$clr-text-secondary: var(--clr-text-secondary);
+$clr-text-tertiary: var(--clr-text-tertiary);
+
+$clr-accent: var(--clr-accent);
+$clr-accent-hover: var(--clr-accent-hover);
+$clr-accent-muted: var(--clr-accent-muted);
+
+$clr-string: var(--clr-string);
+$clr-function: var(--clr-function);
+$clr-comment: var(--clr-comment);
+$clr-variable: var(--clr-variable);
+$clr-constant: var(--clr-constant);
+$clr-error: var(--clr-error);
+$clr-terminal-bg: var(--clr-terminal-bg);
+$clr-line-number: var(--clr-line-number);
+
+// ── Legacy / Compatibility Tokens ────────────
+
+$ff-display: $ff-body;
+$fs-d-xl: $fs-xxl;
+$fs-d-lg: $fs-xl;
+$fs-b-lead: $fs-lg;
+$fs-b-base: $fs-base;
+$fs-b-sm: $fs-sm;
+$fs-b-xs: $fs-xs;
+$fs-m-sm: $fs-mono;
+$fs-m-xs: $fs-mono;
+
+$space-2xs: $space-xs;
+
+$ls-ultra: $ls-mono;
+
+$duration-glacial: $duration-slower;
+
+$z-sticky: 10;
+$z-nav: 40;
+
+$clr-accent-muted-hover: $clr-accent-muted;
+$clr-header-bg: transparent;
+$clr-header-border: $clr-border;
+$clr-noise-opacity: 0;
+$clr-bg-elevated: $clr-bg;
+$clr-accent-glow: $clr-accent-muted;
+$clr-terminal-green: $clr-string;
+$clr-terminal-dim: $clr-string;
+
+// ── Additional Portfolio Tokens ──────────────
+
+$space-6xl: 10rem;
+$space-7xl: 12rem;
+
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+$shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.16);
+
+$clr-gradient-start: var(--clr-accent);
+$clr-gradient-end: var(--clr-secondary-accent);
+
+$z-overlay: 1000;

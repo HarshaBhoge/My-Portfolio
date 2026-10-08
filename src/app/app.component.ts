@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AppV3Component } from './v3/app.component';
+import { PortfolioComponent } from './core/components/portfolio/portfolio.component';
+import { ToasterComponent } from './core/components/toaster/toaster.component';
 import {
   MODE_STORAGE_SERVICE,
   ModeLocalStorageService,
@@ -9,11 +10,14 @@ import { ModeToggleService } from './features/mode-toggle/mode-toggle.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AppV3Component],
+  imports: [PortfolioComponent, ToasterComponent],
   providers: [
     ModeToggleService,
-    { provide: MODE_STORAGE_SERVICE, useClass: ModeLocalStorageService },
+    {
+      provide: MODE_STORAGE_SERVICE,
+      useClass: ModeLocalStorageService,
+    },
   ],
-  template: `<app-root-v3 />`,
+  templateUrl: './app.component.html',
 })
 export class AppComponent {}
