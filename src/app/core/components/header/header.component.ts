@@ -3,7 +3,15 @@ import { ModeToggleComponent } from '../../../features/mode-toggle/mode-toggle.c
 import { NavigationComponent } from '../navigation/navigation.component';
 import { CommonModule } from '@angular/common';
 
-const SECTION_IDS = ['hero', 'principles', 'work', 'journey', 'connect'];
+const SECTION_IDS = [
+  'hero',
+  'about',
+  'skills',
+  'projects',
+  'journey',
+  'blog',
+  'contact',
+];
 
 @Component({
   selector: 'app-header',

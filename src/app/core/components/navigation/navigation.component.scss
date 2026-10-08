@@ -44,7 +44,10 @@
   padding: $space-xs;
   border-radius: $radius-full;
   transition: background $duration-fast $ease-out;
-  &:hover { background: $clr-surface-hover; }
+
+  &:hover {
+    background: $clr-surface-hover;
+  }
 }
 
 @media (max-width: 768px) {
